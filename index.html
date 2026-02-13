@@ -64,7 +64,7 @@
                 <span id="d-day-badge" class="hidden bg-blue-600 text-white text-[10px] px-2 py-0.5 rounded-full font-bold animate-pulse"></span>
             </div>
             <div class="hidden md:flex space-x-6 text-sm font-medium text-slate-600">
-                <a href="#home" class="hover:text-blue-600">홈</a>
+                <a href="#flight" class="hover:text-blue-600">항공/공항</a>
                 <a href="#map-section" class="hover:text-blue-600">여행동선</a>
                 <a href="#schedule" class="hover:text-blue-600">상세일정</a>
                 <a href="#check" class="hover:text-blue-600">준비물</a>
@@ -77,19 +77,136 @@
     <!-- Hero -->
     <section id="home" class="hero-bg min-h-[65vh] flex items-center justify-center text-center px-4">
         <div class="animate-fade-in-up text-white">
-            <!-- Updated Size: text-lg md:text-xl -->
             <span class="bg-blue-600/90 px-6 py-2 rounded-full text-lg md:text-xl font-bold mb-6 inline-block border border-white/20 shadow-lg">문곡중학교 해외문화탐방</span>
             <h1 class="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg font-[Nanum Myeongjo]">오사카 · 교토 · 나라<br><span class="text-yellow-400 font-bold">역사의 숨결을 찾아</span></h1>
             <p class="text-lg md:text-xl text-slate-100 font-light tracking-wide">2026.05.19(화) ~ 05.22(금) | 3박 4일</p>
         </div>
     </section>
 
-    <!-- 1. Google Style Map -->
-    <section id="map-section" class="py-16 bg-white rounded-t-3xl -mt-10 relative z-10">
+    <!-- 1. Flight & Airport Guide (New) -->
+    <section id="flight" class="py-12 bg-white rounded-t-3xl -mt-10 relative z-10">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-10">
+            <!-- 1. Air Busan Info -->
+            <div class="max-w-5xl mx-auto mb-8">
+                <div class="bg-white rounded-2xl border border-blue-100 shadow-lg overflow-hidden">
+                    <div class="bg-blue-50 px-6 py-4 border-b border-blue-100 flex flex-wrap justify-between items-center gap-2">
+                        <h3 class="font-bold text-slate-800 text-lg flex items-center gap-2">
+                            <i class="fa-solid fa-plane-departure text-blue-600"></i> 항공 일정 및 소개
+                        </h3>
+                        <span class="bg-blue-600 text-white text-xs px-3 py-1 rounded-full font-bold shadow-sm">에어부산 (BX)</span>
+                    </div>
+                    
+                    <div class="p-6 md:p-8">
+                        <!-- Airline PR -->
+                        <div class="bg-slate-50 rounded-xl p-4 mb-8 border border-slate-100">
+                            <h4 class="font-bold text-slate-800 mb-2 flex items-center gap-2">💡 왜 에어부산인가요?</h4>
+                            <p class="text-sm text-slate-600 leading-relaxed">
+                                에어부산은 아시아나항공 계열의 항공사로, 국적기 수준의 엄격한 안전 정비 시스템을 갖추고 있습니다. 
+                                특히 타 저비용항공사(LCC) 대비 <span class="text-blue-600 font-bold">넓은 좌석 간격</span>과 높은 <span class="text-blue-600 font-bold">정시 운항률</span>로 
+                                실속과 편안함을 모두 챙긴 스마트한 선택입니다.
+                            </p>
+                        </div>
+
+                        <!-- Schedule -->
+                        <div class="grid md:grid-cols-2 gap-8 divide-y md:divide-y-0 md:divide-x divide-slate-100">
+                            <!-- Departure -->
+                            <div class="flex flex-col items-center text-center">
+                                <span class="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded font-bold mb-3">출국 (인천 → 오사카)</span>
+                                <div class="flex items-center gap-4 w-full justify-center">
+                                    <div>
+                                        <span class="block text-3xl font-black text-slate-800">09:40</span>
+                                        <span class="text-sm text-slate-500 font-bold">인천(ICN)</span>
+                                    </div>
+                                    <div class="flex flex-col items-center w-24">
+                                        <span class="text-[10px] text-slate-400">BX172</span>
+                                        <div class="w-full h-[2px] bg-slate-300 relative my-1">
+                                            <i class="fa-solid fa-plane text-blue-500 absolute -top-2 left-1/2 -translate-x-1/2 bg-white px-1"></i>
+                                        </div>
+                                        <span class="text-[10px] text-slate-400">약 2시간 10분</span>
+                                    </div>
+                                    <div>
+                                        <span class="block text-3xl font-black text-slate-800">11:50</span>
+                                        <span class="text-sm text-slate-500 font-bold">오사카(KIX)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Return -->
+                            <div class="flex flex-col items-center text-center pt-8 md:pt-0">
+                                <span class="text-xs bg-red-100 text-red-700 px-2 py-0.5 rounded font-bold mb-3">귀국 (오사카 → 인천)</span>
+                                <div class="flex items-center gap-4 w-full justify-center">
+                                    <div>
+                                        <span class="block text-3xl font-black text-slate-800">12:50</span>
+                                        <span class="text-sm text-slate-500 font-bold">오사카(KIX)</span>
+                                    </div>
+                                    <div class="flex flex-col items-center w-24">
+                                        <span class="text-[10px] text-slate-400">BX171</span>
+                                        <div class="w-full h-[2px] bg-slate-300 relative my-1">
+                                            <i class="fa-solid fa-plane text-red-500 absolute -top-2 left-1/2 -translate-x-1/2 bg-white px-1 transform rotate-180"></i>
+                                        </div>
+                                        <span class="text-[10px] text-slate-400">약 2시간 10분</span>
+                                    </div>
+                                    <div>
+                                        <span class="block text-3xl font-black text-slate-800">15:00</span>
+                                        <span class="text-sm text-slate-500 font-bold">인천(ICN)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Airport Guide -->
+            <div class="max-w-5xl mx-auto">
+                <div class="bg-white rounded-2xl border border-slate-200 shadow-lg p-6 md:p-8">
+                    <h3 class="font-bold text-slate-800 text-lg mb-6 flex items-center gap-2">
+                        <i class="fa-solid fa-building-user text-green-600"></i> 세계 1위 공항, 인천국제공항 100% 활용하기
+                    </h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-center">
+                        <!-- Step 1 -->
+                        <div class="bg-green-50 rounded-xl p-4 border border-green-100 relative group">
+                            <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-green-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold shadow-md">1</div>
+                            <div class="mb-2"><i class="fa-solid fa-clock text-2xl text-green-600"></i></div>
+                            <h4 class="font-bold text-slate-800 text-sm">3시간 전 도착</h4>
+                            <p class="text-xs text-slate-600 mt-1">공항은 생각보다 넓어요!<br>여유 있게 도착하세요.</p>
+                        </div>
+                        <!-- Step 2 -->
+                        <div class="bg-green-50 rounded-xl p-4 border border-green-100 relative">
+                            <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-green-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold shadow-md">2</div>
+                            <div class="mb-2"><i class="fa-solid fa-users-rectangle text-2xl text-green-600"></i></div>
+                            <h4 class="font-bold text-slate-800 text-sm">제1여객터미널</h4>
+                            <p class="text-xs text-slate-600 mt-1">에어부산은 <span class="font-bold text-red-500">T1</span>입니다.<br>선생님 인솔에 집중!</p>
+                        </div>
+                        <!-- Step 3 -->
+                        <div class="bg-green-50 rounded-xl p-4 border border-green-100 relative">
+                            <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-green-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold shadow-md">3</div>
+                            <div class="mb-2"><i class="fa-solid fa-passport text-2xl text-green-600"></i></div>
+                            <h4 class="font-bold text-slate-800 text-sm">보안 검색</h4>
+                            <p class="text-xs text-slate-600 mt-1">100ml 초과 액체류 반입 금지.<br>미리 짐을 정리하세요.</p>
+                        </div>
+                        <!-- Step 4 -->
+                        <div class="bg-green-50 rounded-xl p-4 border border-green-100 relative">
+                            <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-green-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold shadow-md">4</div>
+                            <div class="mb-2"><i class="fa-solid fa-door-open text-2xl text-green-600"></i></div>
+                            <h4 class="font-bold text-slate-800 text-sm">탑승 게이트</h4>
+                            <p class="text-xs text-slate-600 mt-1">탑승 마감은 출발 10분 전!<br>늦지 않게 이동하세요.</p>
+                        </div>
+                    </div>
+                    <div class="mt-4 text-center text-xs text-slate-400 bg-slate-50 py-2 rounded-lg">
+                        <i class="fa-solid fa-circle-info mr-1"></i> 문곡중학교 학생 여러분은 지정된 장소에서 선생님의 안내에 따라 단체 수속을 진행합니다.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Google Style Map -->
+    <section id="map-section" class="py-12 bg-slate-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-8">
                 <h2 class="text-3xl font-bold text-slate-800 tracking-tight">한눈에 보는 여행 동선</h2>
-                <p class="text-slate-500 mt-2">간사이 공항에서 오사카 만을 따라 이동하는 실제 경로를 확인하세요.</p>
+                <p class="text-slate-500 mt-2">간사이 공항에서 오사카 만을 따라 이동하는 실제 경로</p>
             </div>
             <div class="max-w-5xl mx-auto border border-slate-200 rounded-2xl p-1 shadow-lg bg-white">
                 <div id="map"></div>
@@ -97,14 +214,14 @@
             <!-- Map Legend -->
             <div class="max-w-5xl mx-auto mt-4 flex flex-wrap justify-center gap-4 text-xs font-bold text-slate-600">
                 <div class="flex items-center gap-1"><span class="w-3 h-3 rounded-full bg-blue-600"></span>주요 방문지</div>
-                <div class="flex items-center gap-1"><span class="w-3 h-3 rounded-full bg-orange-500"></span>선택 관광(USJ/나라)</div>
-                <div class="flex items-center gap-1"><span class="w-3 h-3 rounded-full bg-slate-500"></span>공항/숙소</div>
+                <div class="flex items-center gap-1"><span class="w-3 h-3 rounded-full bg-green-600"></span>공항 이동</div>
+                <div class="flex items-center gap-1"><span class="w-3 h-3 rounded-full bg-slate-500"></span>숙소</div>
             </div>
         </div>
     </section>
 
-    <!-- 2. Practical Info -->
-    <section id="info" class="py-12 bg-slate-50">
+    <!-- 3. Practical Info -->
+    <section id="info" class="py-12 bg-white">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
@@ -124,8 +241,8 @@
         </div>
     </section>
 
-    <!-- 3. Culture & History -->
-    <section id="culture" class="py-16 bg-white">
+    <!-- 4. Culture & History -->
+    <section id="culture" class="py-16 bg-slate-50">
         <div class="container mx-auto px-4">
             <div class="max-w-4xl mx-auto">
                 <div class="text-center mb-10">
@@ -158,8 +275,8 @@
         </div>
     </section>
 
-    <!-- 4. Detailed Schedule -->
-    <section id="schedule" class="py-16 bg-slate-50">
+    <!-- 5. Detailed Schedule -->
+    <section id="schedule" class="py-16 bg-white">
         <div class="container mx-auto px-4">
             <div class="max-w-4xl mx-auto">
                 <div class="flex overflow-x-auto no-scrollbar gap-2 mb-8 justify-start md:justify-center">
@@ -226,30 +343,31 @@
                     <!-- Day 3 -->
                     <div id="day3" class="tab-content hidden animate-fade-in-up p-8">
                         <div class="flex items-center gap-4 mb-6">
-                            <span class="text-4xl bg-orange-100 p-3 rounded-2xl">🎢</span>
+                            <span class="text-4xl bg-orange-100 p-3 rounded-2xl">🦌</span>
                             <div>
-                                <h3 class="font-bold text-2xl text-slate-800">학생들의 꿈, 오사카와 나라</h3>
-                                <p class="text-orange-600 font-medium">역사 체험 vs 테마파크 선택 일정</p>
+                                <h3 class="font-bold text-2xl text-slate-800">역사와 현재가 공존하는 오사카</h3>
+                                <p class="text-orange-600 font-medium">나라 사슴공원 및 오사카 핵심 투어</p>
                             </div>
                         </div>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="border-2 border-slate-100 rounded-2xl p-6 bg-slate-50">
-                                <h4 class="font-bold mb-4 border-b pb-2">1안: 역사문화 핵심 코스</h4>
-                                <ul class="text-sm space-y-3 text-slate-600">
-                                    <li>• 나라 동대사 & 사슴공원 체험</li>
-                                    <li>• 오사카성(천수각) 관람</li>
-                                    <li>• 하루카스 300 전망대</li>
-                                    <li>• 도톤보리 & 신사이바시 자유시간</li>
-                                </ul>
+                        <div class="space-y-6">
+                            <div class="bg-orange-50 p-5 rounded-2xl border border-orange-100 mb-4">
+                                <h5 class="font-bold text-orange-900 mb-1 flex items-center gap-2"><i class="fa-solid fa-camera text-orange-500"></i> 핵심 포인트</h5>
+                                <p class="text-sm text-orange-800 leading-relaxed">USJ 일정을 제외하고 역사 문화 탐방에 집중하여 더욱 깊이 있는 여행을 제공합니다.</p>
                             </div>
-                            <div class="border-2 border-yellow-400 rounded-2xl p-6 bg-yellow-50 relative">
-                                <span class="absolute top-4 right-4 bg-yellow-400 text-white text-[10px] px-2 py-0.5 rounded font-black">학생 선호 1위</span>
-                                <h4 class="font-bold mb-4 border-b border-yellow-200 pb-2">2안: 유니버셜 스튜디오(USJ)</h4>
-                                <ul class="text-sm space-y-3 text-slate-700">
-                                    <li class="font-bold text-orange-600">• 전일 테마파크 자유 일정</li>
-                                    <li>• 해리포터, 슈퍼마리오 월드 등</li>
-                                    <li class="text-xs text-red-500 mt-4 leading-relaxed bg-white p-2 rounded-xl border border-red-100 font-medium">※ 1안 대비 입장료 및 기타 제반 비용 등 추가 요금이 발생합니다.</li>
-                                </ul>
+                            <div class="relative pl-8 border-l-2 border-orange-100">
+                                <div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-orange-500"></div>
+                                <h4 class="font-bold text-lg">나라 동대사 & 사슴공원</h4>
+                                <p class="text-slate-500 text-sm mt-1">세계 최대 목조 불상 관람 및 사슴과 교감</p>
+                            </div>
+                            <div class="relative pl-8 border-l-2 border-orange-100">
+                                <div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-orange-300"></div>
+                                <h4 class="font-bold text-lg">오사카성 (천수각)</h4>
+                                <p class="text-slate-500 text-sm mt-1">오사카의 랜드마크이자 역사의 중심지</p>
+                            </div>
+                            <div class="relative pl-8 border-l-2 border-orange-100">
+                                <div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-orange-300"></div>
+                                <h4 class="font-bold text-lg">하루카스 300 & 도톤보리</h4>
+                                <p class="text-slate-500 text-sm mt-1">오사카 전경 조망 및 활기찬 시내 자유 산책</p>
                             </div>
                         </div>
                     </div>
@@ -273,7 +391,7 @@
         </div>
     </section>
 
-    <!-- 5. Promotional Videos -->
+    <!-- 6. Promotional Videos -->
     <section class="py-16 bg-slate-900">
         <div class="container mx-auto px-4">
             <div class="text-center mb-10 text-white">
@@ -289,15 +407,16 @@
                 </div>
                 <div class="space-y-3">
                     <div class="aspect-video rounded-3xl overflow-hidden shadow-2xl border border-slate-700">
-                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/Qqsp0ck6AQA" title="USJ Guide" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <!-- Nara Deer Park Video -->
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/n3H8_d8M_oI" title="Nara Deer Park" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
-                    <p class="text-center text-slate-300 font-bold text-sm">🎢 유니버셜 스튜디오 재팬</p>
+                    <p class="text-center text-slate-300 font-bold text-sm">🦌 나라 사슴공원</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 6. Checklist & Memo (Restored Feature) -->
+    <!-- 7. Checklist & Memo (Restored Feature) -->
     <section id="check" class="py-16 bg-white border-t border-slate-100">
         <div class="container mx-auto px-4">
             <div class="text-center mb-10">
@@ -321,7 +440,7 @@
         </div>
     </section>
 
-    <!-- 7. Emergency Contact (Restored & Enhanced) -->
+    <!-- 8. Emergency Contact (Restored & Enhanced) -->
     <section id="contact" class="py-12 bg-slate-50">
         <div class="container mx-auto px-4">
             <div class="text-center mb-8">
@@ -417,7 +536,7 @@
             const container = document.getElementById('checklist-container');
             if(!container) return;
 
-            const KEY = 'mungok_osaka_checklist_v4'; // Version Up
+            const KEY = 'mungok_osaka_checklist_v5'; // Version Up
             const saved = JSON.parse(localStorage.getItem(KEY) || '{}');
 
             container.innerHTML = CHECK_ITEMS.map((label, idx) => {
@@ -443,14 +562,14 @@
         (function(){
             const memo = document.getElementById('travel-memo');
             if(!memo) return;
-            const KEY = 'mungok_osaka_memo_v4'; // Version Up
+            const KEY = 'mungok_osaka_memo_v5'; // Version Up
             memo.value = localStorage.getItem(KEY) || '';
             memo.addEventListener('input', () => {
                 localStorage.setItem(KEY, memo.value);
             });
         })();
 
-        // Map Logic (Google/Standard Map Style with Waypoints)
+        // Map Logic (Updated: Removed USJ, Adjusted Routes)
         let mapInited = false;
         function initMap(){
             if(mapInited || !window.L) return;
@@ -462,8 +581,7 @@
                 kobe: [34.6850, 135.1888], 
                 kyoto: [35.0262, 135.7601], 
                 nara: [34.6851, 135.8048], 
-                osaka: [34.6937, 135.5022], 
-                usj: [34.6654, 135.4323]
+                osaka: [34.6937, 135.5022]
             };
 
             const map = L.map('map', { scrollWheelZoom:false });
@@ -473,14 +591,13 @@
                 maxZoom: 19
             }).addTo(map);
 
-            // Path 1: Airport -> (Coastal Highway) -> Kobe
-            // Use intermediate points to simulate highway curve around Osaka Bay
+            // Path 1: Airport -> Kobe
             const kixToKobeRoute = [
                 spots.kix,
                 [34.414, 135.315], // Rinku
                 [34.542, 135.438], // Sakai
                 [34.614, 135.435], // Nanko
-                [34.660, 135.424], // USJ Area (Highway)
+                [34.660, 135.424], // USJ Area (Highway passing by)
                 spots.kobe
             ];
             L.polyline(kixToKobeRoute, { color: '#dc2626', weight: 4, opacity: 0.8 }).addTo(map);
@@ -490,9 +607,6 @@
             
             // Path 3: Osaka -> Nara
             L.polyline([spots.osaka, spots.nara], { color: '#f59e0b', weight: 4, opacity: 0.8 }).addTo(map);
-            
-            // Path 4: Osaka -> USJ
-            L.polyline([spots.osaka, spots.usj], { color: '#f59e0b', weight: 4, opacity: 0.8, dashArray: '5,5' }).addTo(map);
             
             // Return: Osaka -> Airport
             const returnRoute = [spots.osaka, [34.542, 135.438], spots.kix];
@@ -514,7 +628,6 @@
             createMarker(spots.osaka, '숙소 (오사카)', '#475569', 'H');
             createMarker(spots.kyoto, '3. 교토 (2일차)', '#2563eb', '2');
             createMarker(spots.nara, '4. 나라 (3일차)', '#f59e0b', '3');
-            createMarker(spots.usj, 'USJ (선택)', '#f59e0b', 'opt');
 
             // Fit bounds
             const bounds = L.latLngBounds(Object.values(spots));
