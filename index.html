@@ -18,6 +18,7 @@
     <meta name="description" content="문곡중학교 오사카/고베/교토/나라 3박 4일 역사문화탐방 공식 스마트 가이드북">
     <meta property="og:title" content="[문곡중] 🇯🇵 오사카 역사문화탐방 가이드북">
     <meta property="og:description" content="교장·교감 선생님, 학부모님께 공유드리는 상세 일정 및 교육 프로그램 안내입니다.">
+    <!-- 웹페이지 내 이미지를 og:image로 무조건 사용 -->
     <meta property="og:image" content="https://storage.googleapis.com/explorest-photo-asia/japan/tshibata-osaka-castle-compressed.jpg">
 
     <!-- Tailwind CSS -->
@@ -72,13 +73,13 @@
             /* Hide URL printing in some browsers */
             a[href]:after { content: none !important; }
             
-            /* [개선1] 배경색 및 컬러 요소 강제 인쇄 (회색 배경 유지) */
+            /* 배경색 및 컬러 요소 강제 인쇄 (회색 배경 유지) */
             * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
             
-            /* [개선2] 표의 행(tr)이 페이지 중간에서 반으로 잘리는 현상 방지 */
+            /* 표의 행(tr)이 페이지 중간에서 반으로 잘리는 현상 방지 */
             table tr { page-break-inside: avoid; break-inside: avoid; }
             
-            /* [개선3] 인쇄 시 표 내부 텍스트 가독성(줄간격) 확보 */
+            /* 인쇄 시 표 내부 텍스트 가독성(줄간격) 확보 */
             #print-area td { line-height: 1.6; }
         }
     </style>
@@ -185,7 +186,6 @@
                             <div class="bg-red-50 border border-red-100 rounded-xl p-5 w-full md:w-1/2 text-center">
                                 <span class="text-xs bg-red-600 text-white px-3 py-1 rounded-full font-bold mb-3 inline-block">귀국 5.15(금)</span>
                                 <p class="font-black text-xl text-slate-800 mb-1">에어부산 BX171</p>
-                                <!-- 비행기 방향 정방향 수정 (rotate-180 제거) -->
                                 <p class="text-slate-600 font-medium text-lg">간사이 12:50 <i class="fa-solid fa-plane text-red-400 mx-2"></i> 인천 15:00</p>
                             </div>
                         </div>
@@ -544,7 +544,7 @@
                                     <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center text-red-600 shadow-sm"><i class="fa-solid fa-plane-arrival"></i></div>
                                     <div>
                                         <p class="text-xl font-bold text-slate-800">15:00</p>
-                                        <p class="text-sm text-slate-500">인천 국제공항 도착 및 안전한 해산</p>
+                                        <p class="text-sm text-slate-500">인천 국제공항 도착 및 안전하게 해산</p>
                                     </div>
                                 </div>
                             </div>
@@ -554,26 +554,27 @@
             </div>
         </section>
 
-        <!-- Promotional Videos (Curation Strategy) -->
+        <!-- Promotional Videos (Curation Strategy: Single Comprehensive Video) -->
         <section id="video" class="py-16 bg-slate-900">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-10 text-white">
                     <span class="inline-block bg-white/20 text-white text-xs px-3 py-1 rounded-full font-bold mb-3 border border-white/30">PREVIEW 영상</span>
-                    <h2 class="text-3xl font-bold">🎬 영상으로 미리 만나는 일본</h2>
-                    <p class="text-slate-400 text-sm mt-3">교토의 정취와 오사카의 활기를 고화질 영상으로 만나보세요.</p>
+                    <h2 class="text-3xl font-bold">🎬 영상으로 미리 만나는 간사이</h2>
+                    <p class="text-slate-400 text-sm mt-3">오사카, 고베, 교토, 나라! 우리가 방문할 4개 도시의 매력을 하나의 영상으로 집중 조명합니다.</p>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                    <div class="space-y-3">
-                        <div class="aspect-video rounded-3xl overflow-hidden shadow-2xl border border-slate-700">
-                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/vWu_BID3uG4" title="Kyoto Travel" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                
+                <div class="max-w-4xl mx-auto">
+                    <div class="space-y-5">
+                        <div class="aspect-video rounded-3xl overflow-hidden shadow-2xl border border-slate-700 bg-black relative">
+                            <!-- 단일 종합 큐레이션 영상 적용 -->
+                            <iframe class="w-full h-full absolute top-0 left-0" src="https://www.youtube.com/embed/aPFCcvNwauE" title="Kansai Travel Guide" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
-                        <p class="text-center text-slate-300 font-bold text-sm">🇯🇵 천년의 고도, 교토의 숨결</p>
-                    </div>
-                    <div class="space-y-3">
-                        <div class="aspect-video rounded-3xl overflow-hidden shadow-2xl border border-slate-700">
-                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/Xg2aoWcLiFU" title="Osaka Guide" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <p class="text-center text-slate-300 font-bold text-sm">🇯🇵 식도락과 역사, 오사카 종합 안내</p>
+                        <p class="text-center text-slate-300 font-bold text-base md:text-lg tracking-wide">
+                            🇯🇵 간사이 핵심 요약 (오사카·교토·고베·나라)
+                        </p>
+                        <p class="text-center text-slate-400 text-xs md:text-sm">
+                            단편적인 정보 대신, 전체 지역의 흐름과 분위기를 미리 체감해 볼 수 있는 최적의 가이드 영상입니다.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -670,18 +671,18 @@
         </section>
 
         <!-- Footer -->
-        <footer class="bg-white py-12 border-t border-slate-100 text-center">
+        <footer class="bg-[#f8f9fa] py-12 border-t border-slate-100 text-center">
             <div class="container mx-auto px-4">
                 <div class="flex items-center justify-center gap-4 mb-8">
                     <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgHfgIX70O5k6Anuo0UgALIdaG9jSga9auHu3uyz0uEirylGPAJnjN_qQbvEGMUvPqUQf_g9FMNUHRxlDcUBf4vZ3Mpy4TnA9WxbmzWYK11gt2zuy_Irl4wctNFjcjLyPo0GPXV792o_J7L9guRMuDfeC1gy7USwywjYbECZgzcsHybuGRRAXAnO1eNmP8/s320/logo.png" alt="Tourmaker" class="h-10">
                 </div>
                 
                 <p class="text-[12px] md:text-[13px] text-[#6c757d] font-normal mb-8 max-w-2xl mx-auto leading-relaxed text-center">
-                    [System Powered by TOURMAKER] 본 스마트 가이드북은 **문곡중학교**의 기획과 <a href="http://tourmaker.kr" target="_blank" class="font-bold text-[#6c757d] hover:text-blue-600 underline underline-offset-2">투어메이커</a>의 트래블 테크 기술 제휴로 제작되었습니다.
+                    [System Powered by TOURMAKER] 본 스마트 가이드북은 <strong>문곡중학교</strong>의 기획과 <a href="http://tourmaker.kr" target="_blank" class="font-bold text-[#6c757d] hover:text-blue-600 underline underline-offset-2">투어메이커</a>의 트래블 테크 기술 제휴로 제작되었습니다.
                 </p>
 
                 <div class="mb-12">
-                    <a href="http://tourmaker.kr" target="_blank" class="inline-block border-2 border-slate-800 rounded-2xl px-8 py-4 bg-white text-slate-800 font-black hover:bg-slate-800 hover:text-white transition-all shadow-xl hover:shadow-2xl">
+                    <a href="http://tourmaker.kr" target="_blank" class="inline-block border border-slate-300 rounded-2xl px-8 py-4 bg-white text-slate-700 font-bold hover:bg-slate-50 transition-all shadow-sm">
                         👉 <span class="mr-2">투어메이커</span> 공식 홈페이지 바로가기
                     </a>
                 </div>
@@ -889,7 +890,6 @@
             });
         })();
 
-
         // Map Logic
         let mapInited = false;
         function initMap(){
@@ -940,7 +940,6 @@
             map.fitBounds(bounds, { padding: [50, 50] });
         }
 
-        // Updated D-Day to match the new image schedule (May 12, 2026)
         const depart = new Date('2026-05-12');
         const diff = Math.ceil((depart - new Date()) / (1000*60*60*24));
         const badge = document.getElementById('d-day-badge');
