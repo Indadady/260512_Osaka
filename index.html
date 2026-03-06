@@ -112,6 +112,7 @@
                         <a href="#video" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-slate-50 rounded-lg transition-colors">영상자료</a>
                         <a href="#check" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-slate-50 rounded-lg transition-colors">준비물</a>
                         <a href="#contact" class="px-3 py-2 text-sm font-medium text-red-600 hover:text-red-800 hover:bg-red-50 rounded-lg transition-colors">비상연락망</a>
+                        <a href="#esg" class="px-3 py-2 text-sm font-bold text-emerald-600 hover:text-emerald-800 hover:bg-emerald-50 rounded-lg transition-colors"><i class="fa-solid fa-leaf mr-1"></i>ESG성과</a>
                     </div>
                 </div>
 
@@ -560,7 +561,7 @@
             </div>
         </section>
 
-        <!-- NEW: Hotel Information Section -->
+        <!-- Hotel Information Section -->
         <section id="hotel" class="py-16 bg-white border-t border-slate-200">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-10">
@@ -695,7 +696,7 @@
                     <!-- Memo -->
                     <div class="bg-yellow-50 p-6 rounded-2xl border border-yellow-100 shadow-sm flex flex-col">
                         <h3 class="font-bold text-lg mb-4 text-yellow-800"><i class="fa-solid fa-pen-clip mr-2"></i>나만의 여행 메모장</h3>
-                        <textarea id="travel-memo" class="flex-1 w-full min-h-[200px] bg-white p-4 rounded-xl border border-yellow-200 text-slate-700 resize-none focus:outline-none focus:ring-2 focus:ring-yellow-400 shadow-inner" placeholder="용돈 계획, 사야할 기념품, 친구들과 약속 등 잊으면 안 되는 내용을 자유롭게 적어두세요."></textarea>
+                        <textarea id="travel-memo" class="flex-1 w-full min-h-[200px] bg-white p-4 rounded-xl border border-yellow-200 text-slate-700 resize-none overflow-hidden focus:outline-none focus:ring-2 focus:ring-yellow-400 shadow-inner" placeholder="용돈 계획, 사야할 기념품, 친구들과 약속 등 잊으면 안 되는 내용을 자유롭게 적어두세요."></textarea>
                     </div>
                 </div>
             </div>
@@ -736,7 +737,7 @@
                     </div>
                 </div>
 
-                <!-- NEW: REDESIGNED Emergency Protocol Banner (T-Safe24) -->
+                <!-- REDESIGNED Emergency Protocol Banner (T-Safe24) -->
                 <div class="text-center mb-10">
                     <h2 class="text-2xl md:text-3xl font-bold text-slate-800 flex items-center justify-center gap-2">
                         🚨 긴급상황 발생 시 대처방안
@@ -782,6 +783,65 @@
             </div>
         </section>
 
+        <!-- NEW: ESG Dashboard Section -->
+        <section id="esg" class="py-16 bg-emerald-50 border-t border-emerald-100 print:hidden">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto">
+                    <div class="text-center mb-10">
+                        <span class="inline-block bg-emerald-100 text-emerald-800 text-xs px-3 py-1 rounded-full font-bold shadow-sm mb-3">
+                            <i class="fa-solid fa-leaf"></i> Eco-Friendly Tour
+                        </span>
+                        <h2 class="text-3xl font-bold text-slate-800">📊 ESG 실천 대시보드</h2>
+                        <p class="text-slate-600 mt-2 font-medium">
+                            <!-- 단체명 수정하는 곳 -->
+                            🌿 <span class="text-emerald-700 font-bold org-name">문곡중학교</span>와 함께하는 ESG 실천 성과
+                        </p>
+                    </div>
+
+                    <div class="bg-white rounded-3xl shadow-lg border border-emerald-100 p-8 md:p-10 relative overflow-hidden">
+                        <!-- Background Pattern Deco -->
+                        <div class="absolute top-0 right-0 -mr-10 -mt-10 opacity-10 text-emerald-600 text-9xl">
+                            <i class="fa-solid fa-earth-asia"></i>
+                        </div>
+
+                        <div class="relative z-10">
+                            <p class="text-center text-slate-600 mb-10 text-lg leading-relaxed font-medium">
+                                종이 일정표 대신 본 스마트 가이드북을 선택한 오늘,<br class="hidden md:block">
+                                우리는 <strong class="text-emerald-600">1인당 평균 아래의 자원을 절감</strong>하며 숲과 지구를 보호하는 데 동참했습니다.
+                            </p>
+
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                                <!-- Paper -->
+                                <div class="bg-emerald-50 rounded-2xl p-6 border border-emerald-100 transition hover:-translate-y-1 hover:shadow-md duration-300">
+                                    <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-emerald-600 text-2xl mx-auto mb-4 shadow-sm">
+                                        <i class="fa-solid fa-file-lines"></i>
+                                    </div>
+                                    <h4 class="text-slate-500 text-sm font-bold mb-2">종이 절감</h4>
+                                    <p class="text-4xl font-black text-slate-800">8<span class="text-lg font-medium text-slate-500 ml-1">장</span></p>
+                                </div>
+                                <!-- Carbon -->
+                                <div class="bg-emerald-50 rounded-2xl p-6 border border-emerald-100 transition hover:-translate-y-1 hover:shadow-md duration-300">
+                                    <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-emerald-600 text-2xl mx-auto mb-4 shadow-sm">
+                                        <i class="fa-solid fa-smog"></i>
+                                    </div>
+                                    <h4 class="text-slate-500 text-sm font-bold mb-2">탄소 배출 감소</h4>
+                                    <p class="text-4xl font-black text-slate-800">38<span class="text-lg font-medium text-slate-500 ml-1">g</span></p>
+                                </div>
+                                <!-- Water -->
+                                <div class="bg-emerald-50 rounded-2xl p-6 border border-emerald-100 transition hover:-translate-y-1 hover:shadow-md duration-300">
+                                    <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-emerald-600 text-2xl mx-auto mb-4 shadow-sm">
+                                        <i class="fa-solid fa-droplet"></i>
+                                    </div>
+                                    <h4 class="text-slate-500 text-sm font-bold mb-2">물 절약</h4>
+                                    <p class="text-4xl font-black text-slate-800">75<span class="text-lg font-medium text-slate-500 ml-1">L</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Footer -->
         <footer class="bg-[#f8f9fa] py-12 border-t border-slate-100 text-center">
             <div class="container mx-auto px-4">
@@ -790,7 +850,8 @@
                 </div>
                 
                 <p class="text-[12px] md:text-[13px] text-[#6c757d] font-normal mb-8 max-w-2xl mx-auto leading-relaxed text-center">
-                    [System Powered by TOURMAKER] 본 스마트 가이드북은 <strong>문곡중학교</strong>의 기획과 <a href="http://tourmaker.kr" target="_blank" class="font-bold text-[#6c757d] hover:text-blue-600 underline underline-offset-2">투어메이커</a>의 트래블 테크 기술 제휴로 제작되었습니다.
+                    <!-- 단체명 수정하는 곳 -->
+                    [System Powered by TOURMAKER] 본 스마트 가이드북은 <strong class="org-name">문곡중학교</strong>의 기획과 <a href="http://tourmaker.kr" target="_blank" class="font-bold text-[#6c757d] hover:text-blue-600 underline underline-offset-2">투어메이커</a>의 트래블 테크 기술 제휴로 제작되었습니다.
                 </p>
 
                 <div class="mb-12">
@@ -999,10 +1060,25 @@
             const memo = document.getElementById('travel-memo');
             if(!memo) return;
             const KEY = 'mungok_osaka_memo_v7'; 
+            
+            // 메모장 자동 높이 조절 함수
+            const autoResize = () => {
+                memo.style.height = 'auto'; // 높이 초기화
+                memo.style.height = memo.scrollHeight + 'px'; // 숨겨진 스크롤 영역만큼 높이 재설정
+            };
+
             memo.value = localStorage.getItem(KEY) || '';
+            
+            // 페이지 초기 로드 시 저장된 텍스트량에 맞춰 높이 조절
+            setTimeout(autoResize, 0);
+
             memo.addEventListener('input', () => {
                 localStorage.setItem(KEY, memo.value);
+                autoResize(); // 글자를 입력할 때마다 실시간으로 높이 조절
             });
+
+            // 스마트폰 화면 회전 등 브라우저 크기 변경 시 텍스트 줄바꿈에 대비해 재계산
+            window.addEventListener('resize', autoResize);
         })();
 
         // Map Route & Layer Logic (상세화 및 경로 육로 보정 적용)
