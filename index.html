@@ -14,11 +14,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>[문곡중] 오사카/고베/교토/나라 역사문화탐방 4일 - 스마트 가이드</title>
     
-    <!-- SEO & Open Graph (카톡 공유 시 썸네일) -->
+    <!-- SEO & Open Graph -->
     <meta name="description" content="문곡중학교 오사카/고베/교토/나라 3박 4일 역사문화탐방 공식 스마트 가이드북">
     <meta property="og:title" content="[문곡중] 🇯🇵 오사카 역사문화탐방 가이드북">
     <meta property="og:description" content="교장·교감 선생님, 학부모님께 공유드리는 상세 일정 및 교육 프로그램 안내입니다.">
-    <!-- 웹페이지 내 이미지를 og:image로 무조건 사용 -->
     <meta property="og:image" content="https://storage.googleapis.com/explorest-photo-asia/japan/tshibata-osaka-castle-compressed.jpg">
 
     <!-- Tailwind CSS -->
@@ -29,9 +28,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Nanum+Myeongjo:wght@700&display=swap" rel="stylesheet">
     <!-- FontAwesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
-    <!-- HTML2PDF (탐구일지 PDF 생성용) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-    <!-- QRCode.js (QR코드 자동생성용) -->
+    <!-- QRCode.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
     <style>
@@ -53,11 +50,10 @@
         
         .timeline-dot { position: absolute; left: -25px; top: 4px; width: 16px; height: 16px; border-radius: 50%; border: 3px solid white; box-shadow: 0 0 0 2px var(--tw-ring-color); background-color: var(--tw-bg-color); }
 
-        /* Weather scrollbar styling */
+        /* Weather scrollbar */
         .weather-scroll::-webkit-scrollbar { height: 6px; }
         .weather-scroll::-webkit-scrollbar-thumb { background-color: #cbd5e1; border-radius: 10px; }
 
-        /* Print Settings for A4 format */
         @media print {
             @page { size: A4; margin: 15mm; }
             body { background-color: white !important; }
@@ -67,19 +63,17 @@
             #print-area td { line-height: 1.6; }
             .no-print { display: none !important; }
         }
-
-        /* PDF Template Hidden Display */
-        #pdf-template-wrapper { position: absolute; left: -9999px; top: 0; }
     </style>
 </head>
 <body class="antialiased pb-20 md:pb-0 print:pb-0 print:bg-white">
 
-    <!-- Screen Content Wrapper (Hidden on Print) -->
+    <!-- Screen Content Wrapper -->
     <div class="print:hidden">
         
         <!-- Header (Sticky Navigation) -->
         <header class="bg-white/95 backdrop-blur-md shadow-md sticky top-0 z-50 transition-all duration-300">
             <nav class="container mx-auto px-4 h-16 flex items-center justify-between">
+                <!-- 로고 및 D-Day -->
                 <div class="flex items-center gap-3 shrink-0">
                     <a href="http://tourmaker.kr" target="_blank">
                         <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgHfgIX70O5k6Anuo0UgALIdaG9jSga9auHu3uyz0uEirylGPAJnjN_qQbvEGMUvPqUQf_g9FMNUHRxlDcUBf4vZ3Mpy4TnA9WxbmzWYK11gt2zuy_Irl4wctNFjcjLyPo0GPXV792o_J7L9guRMuDfeC1gy7USwywjYbECZgzcsHybuGRRAXAnO1eNmP8/s320/logo.png" alt="Tourmaker" class="h-8">
@@ -89,18 +83,21 @@
                 
                 <!-- Desktop & Mobile Scrollable Menu -->
                 <div class="flex-1 overflow-x-auto no-scrollbar ml-4 md:ml-8">
-                    <div class="flex items-center space-x-2 md:space-x-6 whitespace-nowrap pr-4">
-                        <a href="#home" class="px-3 py-2 text-sm font-bold text-slate-600 hover:text-blue-600 hover:bg-slate-50 rounded-lg transition-colors">홈</a>
-                        <a href="#highlights" class="px-3 py-2 text-sm font-bold text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded-lg transition-colors"><i class="fa-solid fa-star mr-1"></i>포인트</a>
-                        <a href="#map-section" class="px-3 py-2 text-sm font-bold text-slate-600 hover:text-blue-600 hover:bg-slate-50 rounded-lg transition-colors">여행동선</a>
-                        <a href="#schedule" class="px-3 py-2 text-sm font-bold text-blue-600 hover:bg-slate-50 rounded-lg transition-colors"><i class="fa-solid fa-calendar-check mr-1"></i>상세일정</a>
-                        <a href="#check" class="px-3 py-2 text-sm font-bold text-indigo-600 hover:text-indigo-800 hover:bg-indigo-50 rounded-lg transition-colors"><i class="fa-solid fa-pen-clip mr-1"></i>탐구일지</a>
-                        <a href="#utilities" class="px-3 py-2 text-sm font-bold text-orange-600 hover:text-orange-800 hover:bg-orange-50 rounded-lg transition-colors"><i class="fa-solid fa-cloud-sun mr-1"></i>날씨/환율</a>
-                        <a href="#contact" class="px-3 py-2 text-sm font-bold text-red-600 hover:text-red-800 hover:bg-red-50 rounded-lg transition-colors">비상연락</a>
+                    <div class="flex items-center space-x-1 md:space-x-4 whitespace-nowrap pr-4">
+                        <a href="#home" class="px-2.5 py-2 text-sm font-bold text-slate-600 hover:text-blue-600 rounded-lg transition-colors">홈</a>
+                        <a href="#highlights" class="px-2.5 py-2 text-sm font-bold text-slate-600 hover:text-blue-600 rounded-lg transition-colors">포인트</a>
+                        <a href="#flight" class="px-2.5 py-2 text-sm font-bold text-slate-600 hover:text-blue-600 rounded-lg transition-colors">항공/입국</a>
+                        <a href="#map-section" class="px-2.5 py-2 text-sm font-bold text-slate-600 hover:text-blue-600 rounded-lg transition-colors">여행동선</a>
+                        <a href="#schedule" class="px-2.5 py-2 text-sm font-bold text-slate-600 hover:text-blue-600 rounded-lg transition-colors">상세일정</a>
+                        <a href="#hotel" class="px-2.5 py-2 text-sm font-bold text-slate-600 hover:text-blue-600 rounded-lg transition-colors">숙소정보</a>
+                        <a href="#video" class="px-2.5 py-2 text-sm font-bold text-slate-600 hover:text-blue-600 rounded-lg transition-colors">영상/준비물</a>
+                        <a href="#utilities" class="px-2.5 py-2 text-sm font-bold text-orange-600 hover:bg-orange-50 rounded-lg transition-colors"><i class="fa-solid fa-cloud-sun mr-1"></i>날씨/환율</a>
+                        <a href="#contact" class="px-2.5 py-2 text-sm font-bold text-red-600 hover:bg-red-50 rounded-lg transition-colors">안전/비상</a>
+                        <a href="#esg" class="px-2.5 py-2 text-sm font-bold text-emerald-600 hover:bg-emerald-50 rounded-lg transition-colors"><i class="fa-solid fa-leaf mr-1"></i>ESG</a>
                     </div>
                 </div>
 
-                <div class="flex gap-2 shrink-0">
+                <div class="flex gap-1 shrink-0">
                     <button onclick="showQRModal()" class="p-2 text-slate-500 hover:text-indigo-600" title="QR코드 생성"><i class="fa-solid fa-qrcode text-xl"></i></button>
                     <button onclick="shareLink()" class="p-2 text-slate-500 hover:text-blue-600" title="일정표 공유하기"><i class="fa-solid fa-share-nodes text-xl"></i></button>
                 </div>
@@ -155,7 +152,7 @@
             </div>
         </section>
 
-        <!-- Flight & Airport Guide -->
+        <!-- Flight & Airport Guide (에어부산 제2터미널 반영) -->
         <section id="flight" class="py-12 bg-slate-50 border-t border-slate-200">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-8">
@@ -167,12 +164,14 @@
                 <div class="max-w-4xl mx-auto mb-10">
                     <div class="bg-white rounded-2xl border border-blue-100 shadow-md p-6">
                         <div class="flex flex-col md:flex-row gap-6 justify-center items-center">
-                            <div class="bg-blue-50 border border-blue-100 rounded-xl p-5 w-full md:w-1/2 text-center">
+                            <div class="bg-blue-50 border border-blue-100 rounded-xl p-5 w-full md:w-1/2 text-center relative overflow-hidden">
+                                <div class="absolute top-0 right-0 bg-blue-600 text-white text-[10px] px-2 py-1 rounded-bl-lg font-bold">제2여객터미널</div>
                                 <span class="text-xs bg-blue-600 text-white px-3 py-1 rounded-full font-bold mb-3 inline-block">출국 5.12(화)</span>
                                 <p class="font-black text-xl text-slate-800 mb-1">에어부산 BX172</p>
                                 <p class="text-slate-600 font-medium text-lg">인천 09:40 <i class="fa-solid fa-plane text-blue-400 mx-2"></i> 간사이 11:50</p>
                             </div>
-                            <div class="bg-red-50 border border-red-100 rounded-xl p-5 w-full md:w-1/2 text-center">
+                            <div class="bg-red-50 border border-red-100 rounded-xl p-5 w-full md:w-1/2 text-center relative overflow-hidden">
+                                <div class="absolute top-0 right-0 bg-red-600 text-white text-[10px] px-2 py-1 rounded-bl-lg font-bold">제2여객터미널</div>
                                 <span class="text-xs bg-red-600 text-white px-3 py-1 rounded-full font-bold mb-3 inline-block">귀국 5.15(금)</span>
                                 <p class="font-black text-xl text-slate-800 mb-1">에어부산 BX171</p>
                                 <p class="text-slate-600 font-medium text-lg">간사이 12:50 <i class="fa-solid fa-plane text-red-400 mx-2"></i> 인천 15:00</p>
@@ -195,11 +194,11 @@
                                 <h4 class="font-bold text-slate-800 text-sm">3시간 전 도착</h4>
                                 <p class="text-xs text-slate-600 mt-1">공항은 생각보다 넓어요!<br>여유 있게 도착하세요.</p>
                             </div>
-                            <div class="bg-slate-50 rounded-xl p-4 border border-slate-100 relative">
-                                <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-green-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold shadow-md">2</div>
-                                <div class="mb-2"><i class="fa-solid fa-users-rectangle text-2xl text-green-600"></i></div>
-                                <h4 class="font-bold text-slate-800 text-sm">제1여객터미널</h4>
-                                <p class="text-xs text-slate-600 mt-1">에어부산은 <span class="font-bold text-blue-600">T1</span>입니다.<br>선생님 인솔에 집중!</p>
+                            <div class="bg-indigo-50 rounded-xl p-4 border border-indigo-200 relative shadow-sm">
+                                <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-indigo-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold shadow-md">2</div>
+                                <div class="mb-2"><i class="fa-solid fa-users-rectangle text-2xl text-indigo-600"></i></div>
+                                <h4 class="font-bold text-indigo-900 text-sm">제2여객터미널</h4>
+                                <p class="text-xs text-indigo-700 mt-1">에어부산은 <span class="font-bold text-red-600">T2</span>입니다.<br>터미널을 꼭 확인하세요!</p>
                             </div>
                             <div class="bg-slate-50 rounded-xl p-4 border border-slate-100 relative">
                                 <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-green-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold shadow-md">3</div>
@@ -269,7 +268,7 @@
             <div class="container mx-auto px-4">
                 <div class="text-center mb-8">
                     <h2 class="text-2xl md:text-3xl font-bold text-slate-800 tracking-tight">한눈에 보는 여행 동선</h2>
-                    <p class="text-slate-500 mt-2">일자별 버튼을 클릭하면 출발지부터 도착지까지 스르륵 연결됩니다.</p>
+                    <p class="text-slate-500 mt-2">일자별 버튼을 클릭하면 출발지부터 도착지까지 <strong class="text-blue-600">스르륵</strong> 연결됩니다.</p>
                 </div>
 
                 <div class="flex flex-wrap justify-center gap-2 mb-6 px-2" id="map-controls">
@@ -344,14 +343,10 @@
 
                                 <div class="relative">
                                     <div class="timeline-dot bg-blue-500 ring-blue-100"></div>
-                                    <h4 class="font-bold text-lg text-slate-800">🕊️ 고베 메모리얼 파크 (메리켄 파크)</h4>
+                                    <h4 class="font-bold text-lg text-slate-800">🕊️ 고베 메모리 파크 (메리켄 파크)</h4>
                                     <p class="text-slate-600 text-sm mt-2 leading-relaxed mb-3">
-                                        1995년 발생한 한신·아와지 대지진 당시 파괴된 항구의 일부를 그대로 보존해 놓은 역사적 장소입니다. 6천 명 이상의 사망자가 발생했던 아픔을 추모하며, 현장에서 직접 배우는 시간을 갖습니다.
+                                        1995년 발생한 한신·아와지 대지진 당시 파괴된 항구의 일부를 그대로 보존해 놓은 역사적 장소입니다. 아픔을 추모하며, 현장에서 직접 배우는 시간을 갖습니다.
                                     </p>
-                                    <div class="bg-indigo-50 border-l-4 border-indigo-500 p-3 rounded-r-lg">
-                                        <span class="text-indigo-700 font-bold text-xs"><i class="fa-solid fa-magnifying-glass"></i> 오늘의 탐구 포인트</span>
-                                        <p class="text-slate-700 text-xs mt-1 font-medium">부서진 가로등과 갈라진 방파제를 보며, 재난 대비의 중요성과 복구를 위한 시민들의 노력에 대해 생각해 보기</p>
-                                    </div>
                                 </div>
 
                                 <div class="relative">
@@ -394,10 +389,6 @@
                                     <p class="text-slate-700 text-sm leading-relaxed mt-2">
                                         일제강점기, 조국을 그리워하며 고뇌했던 민족 시인 <strong>윤동주, 정지용 선생이 유학했던 교정</strong>을 탐방합니다. 캠퍼스 내에 세워진 두 시인의 시비를 찾아 묵념하고, 올바른 역사의식과 애국심을 고취하는 핵심 문학 탐방 코스입니다.
                                     </p>
-                                    <div class="bg-amber-50 border-l-4 border-amber-500 p-3 rounded-r-lg mt-3">
-                                        <span class="text-amber-700 font-bold text-xs"><i class="fa-solid fa-magnifying-glass"></i> 오늘의 탐구 포인트</span>
-                                        <p class="text-slate-700 text-xs mt-1 font-medium">캠퍼스에 남겨진 시비를 찾아 윤동주 시인의 '서시' 한 구절을 속으로 낭독해 보기</p>
-                                    </div>
                                 </div>
 
                                 <div class="relative">
@@ -441,13 +432,6 @@
                                     <p class="text-orange-600 font-medium text-sm mt-1"><i class="fa-solid fa-map-location-dot"></i> 나라 / 오사카 전일 탐방</p>
                                 </div>
                             </div>
-
-                            <div class="bg-orange-50 border border-orange-100 p-4 rounded-xl mb-6">
-                                <p class="text-sm text-orange-800 font-bold"><i class="fa-solid fa-lightbulb text-orange-600"></i> 기획 노트</p>
-                                <p class="text-sm text-orange-700 mt-1 leading-relaxed">
-                                    오전에는 고대 일본의 중심이었던 <strong>나라의 유네스코 문화유산</strong>을 관람하고, 오후에는 현대 일본 제2의 도시인 <strong>오사카의 랜드마크와 번화가</strong>를 탐방하며 과거와 현재를 비교합니다.
-                                </p>
-                            </div>
                             
                             <div class="mb-8 rounded-2xl overflow-hidden shadow-md">
                                 <img src="https://images.openai.com/static-rsc-3/YBt42Z_8IWxKBQAZ9yyw0Zl7WbCEGOpjJ81e5_vs7Xx6qK5sCRg-vQw3wcwbRvuzFfkXfQB7mNkDwoRlwKvP6C3RN2cc6cyfGiWi8f4-vV8?purpose=fullsize&v=1" alt="동대사 대불전" class="w-full h-48 object-cover object-center">
@@ -460,10 +444,6 @@
                                     <p class="text-slate-600 text-sm mt-2 leading-relaxed mb-3">
                                         천연기념물 사슴들이 노니는 <strong>사슴공원</strong>에서 동물과 교감합니다. 세계 최대의 목조 건축물인 <strong>도다이지</strong>를 방문하여 거대한 청동 불상(대불)의 웅장함을 관람합니다.
                                     </p>
-                                    <div class="bg-orange-50 border-l-4 border-orange-500 p-3 rounded-r-lg">
-                                        <span class="text-orange-700 font-bold text-xs"><i class="fa-solid fa-magnifying-glass"></i> 오늘의 탐구 포인트</span>
-                                        <p class="text-slate-700 text-xs mt-1 font-medium">거대한 목조 건축물인 동대사가 옛날 기술력으로 어떻게 지어졌을지 상상해 보고, 백제와의 문화 교류 흔적 찾아보기</p>
-                                    </div>
                                 </div>
                                 
                                 <div class="relative">
@@ -539,7 +519,7 @@
             </div>
         </section>
 
-        <!-- Hotel Information Section -->
+        <!-- Hotel Information Section (기획자 노트 제거) -->
         <section id="hotel" class="py-16 bg-white border-t border-slate-200">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-10">
@@ -548,47 +528,36 @@
                     <p class="text-sm text-slate-500 mt-2">안전하고 쾌적하게 쉴 수 있는 3박 4일간의 베이스캠프입니다.</p>
                 </div>
 
-                <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                    <!-- Hotel Images (Left/Top) -->
-                    <div class="lg:col-span-5 space-y-4">
+                <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+                    <div class="space-y-4">
                         <div class="rounded-2xl overflow-hidden shadow-lg border border-slate-100 relative group">
-                            <img src="https://tse3.mm.bing.net/th/id/OIP.ub7PqmRXGv-NnxxJWyrvdQHaE7?w=474&h=379&c=7&p=0" alt="사라사 호텔 외관" class="w-full h-64 object-cover transform transition duration-500 group-hover:scale-105">
+                            <img src="https://tse3.mm.bing.net/th/id/OIP.ub7PqmRXGv-NnxxJWyrvdQHaE7?w=474&h=379&c=7&p=0" alt="사라사 호텔 외관" class="w-full h-56 object-cover transform transition duration-500 group-hover:scale-105">
                             <div class="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs px-2 py-1 rounded">호텔 외관</div>
                         </div>
+                    </div>
+                    <div class="space-y-4">
                         <div class="rounded-2xl overflow-hidden shadow-lg border border-slate-100 relative group">
-                            <img src="https://visitgayosaka.com/content/images/Hotel/SARASA_HOTEL_Dotonbori/1.jpg" alt="사라사 호텔 객실" class="w-full h-48 object-cover transform transition duration-500 group-hover:scale-105">
+                            <img src="https://visitgayosaka.com/content/images/Hotel/SARASA_HOTEL_Dotonbori/1.jpg" alt="사라사 호텔 객실" class="w-full h-56 object-cover transform transition duration-500 group-hover:scale-105">
                             <div class="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs px-2 py-1 rounded">객실 내부 (예시)</div>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Hotel Info (Right/Bottom) -->
-                    <div class="lg:col-span-7">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
-                                <p class="text-xs font-bold text-slate-400 mb-1 flex items-center gap-1"><i class="fa-solid fa-location-dot text-indigo-500"></i> 주소</p>
-                                <p class="text-sm text-slate-700 font-medium">오사카시 주오구 시마노우치 2-9-6</p>
-                            </div>
-                            <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
-                                <p class="text-xs font-bold text-slate-400 mb-1 flex items-center gap-1"><i class="fa-solid fa-phone text-indigo-500"></i> 전화번호</p>
-                                <p class="text-sm text-slate-700 font-medium">06-6212-6840</p>
-                            </div>
-                            <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
-                                <p class="text-xs font-bold text-slate-400 mb-1 flex items-center gap-1"><i class="fa-solid fa-train-subway text-indigo-500"></i> 위치 및 접근성</p>
-                                <p class="text-sm text-slate-700 font-medium">니혼바시역 도보 5분. 도톤보리 인접</p>
-                            </div>
-                            <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
-                                <p class="text-xs font-bold text-slate-400 mb-1 flex items-center gap-1"><i class="fa-regular fa-clock text-indigo-500"></i> 체크인 / 아웃</p>
-                                <p class="text-sm text-slate-700 font-medium">체크인 15:00 / 체크아웃 10:00 (단체 기준)</p>
-                            </div>
-                            <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 md:col-span-2">
-                                <p class="text-xs font-bold text-slate-400 mb-1 flex items-center gap-1"><i class="fa-solid fa-mug-hot text-indigo-500"></i> 부대 및 편의 시설</p>
-                                <p class="text-sm text-slate-700 font-medium leading-relaxed">
-                                    [조식] 2층 레스토랑 (일·양식 뷔페 제공)<br>
-                                    [객실] 트윈룸 기준 16~18㎡. 전 객실 금연 (별도 흡연 구역 운영)<br>
-                                    [기타] 무료 Wi-Fi, 24시간 프런트, 체크인 전/후 무료 수하물 보관 가능, 코인세탁실 및 자판기(유료), 제빙기 구비
-                                </p>
-                            </div>
-                        </div>
+                <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <p class="text-xs font-bold text-slate-400 mb-1 flex items-center gap-1"><i class="fa-solid fa-location-dot text-indigo-500"></i> 주소</p>
+                        <p class="text-sm text-slate-700 font-medium">오사카시 주오구 시마노우치 2-9-6</p>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <p class="text-xs font-bold text-slate-400 mb-1 flex items-center gap-1"><i class="fa-solid fa-train-subway text-indigo-500"></i> 접근성</p>
+                        <p class="text-sm text-slate-700 font-medium">니혼바시역 도보 5분. 도톤보리 인접</p>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 lg:col-span-2">
+                        <p class="text-xs font-bold text-slate-400 mb-1 flex items-center gap-1"><i class="fa-solid fa-mug-hot text-indigo-500"></i> 부대 및 편의 시설</p>
+                        <p class="text-sm text-slate-700 font-medium leading-relaxed">
+                            [객실] 트윈룸 기준 16~18㎡. 전 객실 금연 (별도 흡연 구역 운영)<br>
+                            [기타] 무료 Wi-Fi, 24시간 프런트, 무료 수하물 보관 가능
+                        </p>
                     </div>
                 </div>
             </div>
@@ -610,13 +579,13 @@
             </div>
         </section>
 
-        <!-- Checklist & Memo (PDF Generation Combined) -->
+        <!-- Checklist & Memo (심플 메모장 롤백) -->
         <section id="check" class="py-16 bg-white border-t border-slate-100">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-10">
                     <span class="text-indigo-600 font-black tracking-widest text-xs uppercase">PREPARATION & JOURNAL</span>
-                    <h2 class="text-2xl md:text-3xl font-bold text-slate-800 mt-2">준비물 체크 & 탐구 일지</h2>
-                    <p class="text-sm text-slate-500 mt-2">준비물을 점검하고, 현장에서 느낀 점을 간단히 메모하여 PDF로 제출하세요.</p>
+                    <h2 class="text-2xl md:text-3xl font-bold text-slate-800 mt-2">준비물 체크 & 나만의 메모장</h2>
+                    <p class="text-sm text-slate-500 mt-2">잊지 말고 꼭 챙기세요! (작성 내용은 스마트폰에 자동 저장됩니다)</p>
                 </div>
 
                 <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
@@ -631,31 +600,16 @@
                         </div>
                     </div>
                     
-                    <!-- 2. Memo & PDF Journal -->
+                    <!-- 2. Simple Memo -->
                     <div class="bg-yellow-50 p-6 rounded-2xl border border-yellow-100 shadow-sm flex flex-col relative h-full">
-                        <div class="flex justify-between items-center mb-4">
-                            <h3 class="font-bold text-lg text-yellow-800"><i class="fa-solid fa-pen-clip mr-2"></i>학생 탐구 메모장</h3>
-                            <button onclick="generateMemoPDF()" class="bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold py-2 px-3 rounded-lg transition-colors shadow-sm flex items-center">
-                                <i class="fa-solid fa-file-pdf mr-1"></i>학교제출용 PDF
-                            </button>
-                        </div>
-                        
-                        <!-- 학번/이름 입력 (PDF 출력용) -->
-                        <div class="flex gap-2 mb-3">
-                            <input type="text" id="memo-class" placeholder="학년 반 번호 (예: 2-3-15)" class="w-1/2 p-2.5 text-sm rounded-xl border border-yellow-200 focus:ring-2 focus:ring-yellow-400 focus:outline-none shadow-inner">
-                            <input type="text" id="memo-name" placeholder="이름 (예: 홍길동)" class="w-1/2 p-2.5 text-sm rounded-xl border border-yellow-200 focus:ring-2 focus:ring-yellow-400 focus:outline-none shadow-inner">
-                        </div>
-
-                        <!-- 메모장 텍스트에어리어 -->
-                        <textarea id="travel-memo" class="flex-1 w-full min-h-[200px] bg-white p-4 rounded-xl border border-yellow-200 text-slate-700 resize-none overflow-hidden focus:outline-none focus:ring-2 focus:ring-yellow-400 shadow-inner" placeholder="현장에서 배우고 느낀 점, 가이드 선생님의 설명 등을 이곳에 자유롭게 메모하세요. (자동 저장됨)"></textarea>
-                        
-                        <p class="text-[11px] text-slate-500 text-center mt-3">상단의 [학교제출용 PDF] 버튼을 누르면 위 메모 내용이 일지 형식의 문서로 자동 변환되어 다운로드됩니다.</p>
+                        <h3 class="font-bold text-lg text-yellow-800 mb-4"><i class="fa-solid fa-pen-clip mr-2"></i>여행 메모장</h3>
+                        <textarea id="travel-memo" class="flex-1 w-full min-h-[200px] bg-white p-4 rounded-xl border border-yellow-200 text-slate-700 resize-none overflow-hidden focus:outline-none focus:ring-2 focus:ring-yellow-400 shadow-inner" placeholder="현장에서 배우고 느낀 점, 용돈 계획, 친구들과 약속 등 잊으면 안 되는 내용을 자유롭게 적어두세요."></textarea>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 스마트 유틸리티 (날씨 & 환율) -->
+        <!-- 스마트 유틸리티 (날씨 & 환율: 송금기준) -->
         <section id="utilities" class="py-16 bg-slate-50 border-t border-slate-200">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-10">
@@ -698,7 +652,7 @@
                         <div class="flex justify-between items-end mb-6">
                             <div>
                                 <h3 class="font-bold text-xl text-slate-800"><i class="fa-solid fa-yen-sign text-emerald-500 mr-2"></i>실시간 환율 및 체감 물가</h3>
-                                <p class="text-xs text-slate-500 mt-1">현재 기준 (100엔 당) *송금 보낼 때 기준</p>
+                                <p class="text-xs text-slate-500 mt-1">현재 100엔 당 기준 (송금 보낼 때 기준 적용)</p>
                             </div>
                             <div class="text-right">
                                 <span id="current-rate-display" class="text-xl font-black text-emerald-600">--- 원</span>
@@ -707,7 +661,7 @@
 
                         <!-- 환율 계산기 -->
                         <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 mb-6">
-                            <label class="block text-xs font-bold text-slate-500 mb-2">빠른 환율 계산기 (매매기준율 + 약 1% 스프레드 적용)</label>
+                            <label class="block text-xs font-bold text-slate-500 mb-2">빠른 환율 계산기</label>
                             <div class="flex items-center gap-3">
                                 <div class="relative flex-1">
                                     <span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 font-bold">¥</span>
@@ -783,7 +737,7 @@
                     </div>
                 </div>
 
-                <!-- T-safe24 Emergency Protocol UI -->
+                <!-- T-safe24 Emergency Protocol UI (이미지 완벽 매칭) -->
                 <div class="text-center mb-8 mt-8">
                     <h2 class="text-2xl md:text-3xl font-bold text-slate-800 flex items-center justify-center gap-2">
                         🚨 긴급상황 발생 시 대처방안
@@ -791,10 +745,10 @@
                     <p class="text-slate-500 mt-2 text-sm md:text-base">안전사고 및 긴급 상황에 대비한 행동 요령을 반드시 숙지해 주세요.</p>
                 </div>
 
-                <div class="bg-[#fdf8f8] border border-[#f5e6e6] rounded-2xl p-6 md:p-8 flex flex-col md:flex-row gap-8 items-start md:items-center max-w-4xl mx-auto shadow-sm text-left">
+                <div class="bg-[#fffaf9] border border-[#f5e6e6] rounded-2xl p-6 md:p-8 flex flex-col md:flex-row gap-8 items-start md:items-center max-w-4xl mx-auto shadow-sm text-left">
                     <!-- Left Icon Box -->
-                    <div class="bg-[#c23b3b] w-20 h-20 rounded-2xl flex items-center justify-center shrink-0 shadow-md mx-auto md:mx-0">
-                        <i class="fa-solid fa-truck-medical text-white text-3xl"></i>
+                    <div class="bg-[#c23b3b] w-24 h-24 rounded-2xl flex items-center justify-center shrink-0 shadow-md mx-auto md:mx-0">
+                        <i class="fa-solid fa-truck-medical text-white text-4xl"></i>
                     </div>
                     
                     <!-- Right Content Box -->
@@ -806,13 +760,13 @@
                         <div class="bg-white border border-[#f0d8d8] rounded-xl p-4 mb-4 shadow-sm">
                             <ul class="space-y-3 text-sm text-slate-700 font-medium">
                                 <li class="flex items-center gap-3">
-                                    <i class="fa-solid fa-location-dot text-[#c23b3b] w-4 text-center"></i> 위치 기반 긴급 지원 (인근 병원/경찰서 탐색)
+                                    <i class="fa-solid fa-location-dot text-[#c23b3b] w-4 text-center text-base"></i> 위치 기반 긴급 지원 (인근 병원/경찰서 탐색)
                                 </li>
                                 <li class="flex items-center gap-3">
-                                    <i class="fa-solid fa-comment-sms text-[#c23b3b] w-4 text-center"></i> 사용자 요청형 SOS 위치 전송
+                                    <i class="fa-solid fa-comment-sms text-[#c23b3b] w-4 text-center text-base"></i> 사용자 요청형 SOS 위치 전송
                                 </li>
                                 <li class="flex items-center gap-3">
-                                    <i class="fa-solid fa-share-nodes text-[#c23b3b] w-4 text-center"></i> 긴급 상황 대응용 위치 공유 시스템
+                                    <i class="fa-solid fa-share-nodes text-[#c23b3b] w-4 text-center text-base"></i> 긴급 상황 대응용 위치 공유 시스템
                                 </li>
                             </ul>
                         </div>
@@ -1000,35 +954,6 @@
         </div>
     </div>
 
-    <!-- (Hidden) Simple PDF Template for Memo -->
-    <div id="pdf-template-wrapper" class="print:hidden">
-        <div id="pdf-content" style="width: 800px; padding: 40px; background: white; font-family: 'Noto Sans KR', sans-serif; color: #333;">
-            <div style="text-align: center; margin-bottom: 30px; border-bottom: 2px solid #1e293b; padding-bottom: 20px;">
-                <h1 style="font-size: 28px; font-weight: 900; margin: 0;">해외문화탐방 탐구 일지</h1>
-                <p style="font-size: 16px; margin-top: 10px; color: #64748b;">문곡중학교 오사카·교토·고베·나라 역사문화탐방</p>
-            </div>
-            
-            <table style="width: 100%; border-collapse: collapse; margin-bottom: 30px; font-size: 14px;">
-                <tr>
-                    <th style="border: 1px solid #cbd5e1; background: #f8fafc; padding: 12px; width: 20%;">소속 (학년/반/번호)</th>
-                    <td style="border: 1px solid #cbd5e1; padding: 12px; width: 30%;" id="pdf-class"></td>
-                    <th style="border: 1px solid #cbd5e1; background: #f8fafc; padding: 12px; width: 20%;">성명</th>
-                    <td style="border: 1px solid #cbd5e1; padding: 12px; width: 30%; font-weight: bold;" id="pdf-name"></td>
-                </tr>
-            </table>
-
-            <div style="margin-bottom: 30px;">
-                <h3 style="font-size: 18px; color: #1e3a8a; border-left: 4px solid #1e3a8a; padding-left: 10px; margin-bottom: 15px;">탐방 활동 및 감상 메모</h3>
-                <div style="border: 1px solid #e2e8f0; padding: 20px; border-radius: 8px; min-height: 400px; white-space: pre-wrap; line-height: 1.8;" id="pdf-memo-text"></div>
-            </div>
-
-            <div style="margin-top: 50px; text-align: center; color: #64748b; font-size: 12px;">
-                <p>위와 같이 해외문화탐방 탐구 일지를 제출합니다.</p>
-                <p style="margin-top: 20px;">[System Powered by TOURMAKER]</p>
-            </div>
-        </div>
-    </div>
-
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
         // ==========================================
@@ -1148,7 +1073,7 @@
                 const res = await fetch('https://open.er-api.com/v6/latest/JPY');
                 const data = await res.json();
                 if(data && data.rates && data.rates.KRW) {
-                    // 매매기준율에 은행 송금 수수료(스프레드) 약 1%를 가산하여 현실적인 환율 반영
+                    // 매매기준율에 은행 송금 수수료(스프레드) 약 1%를 가산하여 전신환매도율(송금보낼때) 환율 반영
                     exchangeRate = data.rates.KRW * 1.01;
                 }
             } catch(e) {
@@ -1171,7 +1096,7 @@
         // ==========================================
         // Checklist Logic
         // ==========================================
-        const CHECK_KEY = 'mungok_osaka_checklist_v8'; 
+        const CHECK_KEY = 'mungok_osaka_checklist_v9'; 
         const CHECK_ITEMS = [
             '여권 (유효기간 6개월 이상 필수)',
             '돼지코 (110V 전원 변환 어댑터)',
@@ -1218,11 +1143,9 @@
         renderChecklist();
 
         // ==========================================
-        // Simple Memo & PDF Journal Generation
+        // Simple Memo Logic
         // ==========================================
-        const MEMO_KEY = 'mungok_osaka_memo_v8';
-        const memoClass = document.getElementById('memo-class');
-        const memoName = document.getElementById('memo-name');
+        const MEMO_KEY = 'mungok_osaka_memo_v9';
         const travelMemo = document.getElementById('travel-memo');
 
         const autoResize = () => {
@@ -1231,63 +1154,18 @@
         };
 
         function loadMemoLocal() {
-            const saved = JSON.parse(localStorage.getItem(MEMO_KEY) || '{}');
-            if(saved['class']) memoClass.value = saved['class'];
-            if(saved['name']) memoName.value = saved['name'];
-            if(saved['text']) travelMemo.value = saved['text'];
+            const saved = localStorage.getItem(MEMO_KEY) || '';
+            travelMemo.value = saved;
             setTimeout(autoResize, 0);
         }
 
-        function saveMemoLocal() {
-            const data = {
-                'class': memoClass.value,
-                'name': memoName.value,
-                'text': travelMemo.value
-            };
-            localStorage.setItem(MEMO_KEY, JSON.stringify(data));
-        }
-
-        if(memoClass) memoClass.addEventListener('input', saveMemoLocal);
-        if(memoName) memoName.addEventListener('input', saveMemoLocal);
         if(travelMemo) {
             travelMemo.addEventListener('input', () => {
-                saveMemoLocal();
+                localStorage.setItem(MEMO_KEY, travelMemo.value);
                 autoResize();
             });
         }
         window.addEventListener('resize', autoResize);
-
-        function generateMemoPDF() {
-            if(!travelMemo.value.trim()) {
-                alert("탐구 일지에 작성된 메모 내용이 없습니다. 먼저 내용을 작성해주세요.");
-                return;
-            }
-
-            const sClass = memoClass.value || '미입력';
-            const sName = memoName.value || '미입력';
-            const sMemo = travelMemo.value || '내용 없음';
-
-            document.getElementById('pdf-class').innerText = sClass;
-            document.getElementById('pdf-name').innerText = sName;
-            document.getElementById('pdf-memo-text').innerText = sMemo;
-
-            const element = document.getElementById('pdf-content');
-            const opt = {
-                margin:       10,
-                filename:     `탐구일지_${sName}.pdf`,
-                image:        { type: 'jpeg', quality: 0.98 },
-                html2canvas:  { scale: 2, useCORS: true },
-                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
-            };
-
-            document.getElementById('pdf-template-wrapper').style.left = '0';
-            document.getElementById('pdf-template-wrapper').style.zIndex = '-1';
-            
-            html2pdf().set(opt).from(element).save().then(() => {
-                document.getElementById('pdf-template-wrapper').style.left = '-9999px';
-            });
-        }
-
         loadMemoLocal();
 
         // ==========================================
