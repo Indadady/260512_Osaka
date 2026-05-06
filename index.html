@@ -25,7 +25,7 @@
     <!-- Leaflet CSS (Map) -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Nanum+Myeongjo:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Nanum+Myeongjo:wght@700;800&display=swap" rel="stylesheet">
     <!-- FontAwesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
     <!-- QRCode.js -->
@@ -52,37 +52,79 @@
             display: flex; align-items: center; justify-content: center; font-weight: bold; border-radius: 50%; border: 2px solid white; color: white;
         }
         .custom-icon-content:hover { transform: scale(1.2); z-index: 1000 !important; cursor: pointer; }
-        
         .timeline-dot { position: absolute; left: -25px; top: 4px; width: 16px; height: 16px; border-radius: 50%; border: 3px solid white; box-shadow: 0 0 0 2px var(--tw-ring-color); background-color: var(--tw-bg-color); }
 
         /* Weather scrollbar */
         .weather-scroll::-webkit-scrollbar { height: 6px; }
         .weather-scroll::-webkit-scrollbar-thumb { background-color: #cbd5e1; border-radius: 10px; }
 
-        /* Print Mode */
+        /* ==========================================
+           🖨️ 투어메이커 표준 A4 인쇄 최적화 (Print CSS)
+           ========================================== */
         @media print {
-            @page { size: A4; margin: 15mm; }
-            body { background-color: white !important; font-family: 'Noto Sans KR', sans-serif; font-size: 11pt; }
+            @page { size: A4 portrait; margin: 12mm 10mm; }
+            body { background-color: white !important; font-family: 'Noto Sans KR', sans-serif; }
             a[href]:after { content: none !important; }
             * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
-            .print-hidden { display: none !important; }
-            #print-area { display: block !important; }
             
-            /* Table Print Styling */
-            table { width: 100%; border-collapse: collapse; border: 2px solid #000; }
-            th, td { border: 1px solid #000; padding: 4px 6px; word-break: keep-all; line-height: 1.4; }
-            th { background-color: #f1f5f9 !important; font-weight: bold; text-align: center; }
-            .col-day { width: 11%; text-align: center; font-weight: bold; background-color: #f8fafc !important; vertical-align: top; }
-            .col-schedule { width: 75%; vertical-align: top; }
-            .col-meal { width: 14%; text-align: center; vertical-align: middle; font-size: 10pt; }
-            .highlight-text { color: #004098 !important; font-weight: bold; }
-            tr { page-break-inside: avoid; break-inside: avoid; }
+            /* 화면용 컨텐츠 숨김 */
+            .print-hidden { display: none !important; }
+            
+            /* 인쇄 영역 활성화 및 스타일링 */
+            #print-area { display: block !important; width: 100%; color: #1e293b; }
+            
+            /* 문서 헤더 */
+            .print-header { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2px solid #004098; padding-bottom: 8px; margin-bottom: 12px; }
+            .print-header img { height: 35px; object-fit: contain; }
+            .print-title { text-align: center; font-size: 21pt; font-weight: 800; margin-bottom: 12px; font-family: 'Nanum Myeongjo', serif; letter-spacing: -0.5px; color: #000; }
+            
+            /* 요약 박스 */
+            .overview-slim { display: flex; justify-content: space-between; background-color: #f8fafc !important; border: 1px solid #94a3b8; border-radius: 6px; padding: 10px 15px; margin-bottom: 12px; font-size: 10.5pt; }
+            .overview-slim .label { font-weight: 700; color: #004098; margin-right: 5px; }
+
+            /* 테이블 레이아웃 및 여백 최적화 (11% / 75% / 14%) */
+            table { width: 100%; border-collapse: collapse; border: 2px solid #1e293b; margin-bottom: 8px; table-layout: fixed; word-break: keep-all; font-size: 10pt; }
+            th, td { border: 1px solid #1e293b; padding: 10px 12px; vertical-align: top; line-height: 1.5; }
+            th { background-color: #f8fafc !important; color: #1e293b; font-weight: 700; text-align: center; font-size: 10.5pt; padding: 8px; }
+            
+            .col-day { width: 11%; text-align: center; font-weight: 700; background-color: #f8fafc !important; vertical-align: middle; }
+            .col-schedule { width: 75%; }
+            .col-meal { width: 14%; text-align: center; vertical-align: middle; }
+            
+            .day-divider td { border-top: 2px solid #1e293b !important; }
+
+            /* 일정 내용 상세 디자인 */
+            .time-flow { margin-bottom: 6px; font-weight: 500; }
+            .time-tag { display: inline-block; color: #004098; font-weight: 700; margin-right: 5px; }
+            .highlight { font-weight: 700; color: #004098 !important; }
+            
+            .desc-list { list-style: none; margin: 6px 0; padding-left: 0; }
+            .desc-list li { position: relative; padding-left: 12px; margin-bottom: 5px; }
+            .desc-list li::before { content: '■'; font-size: 8px; position: absolute; left: 0; top: 5px; color: #004098; }
+
+            /* 세로 정렬 식사칸 UI */
+            .meal-wrapper { display: flex; flex-direction: column; gap: 8px; justify-content: center; height: 100%; text-align: left; padding-left: 4px; }
+            .meal-simple { display: flex; align-items: flex-start; font-size: 9.5pt; color: #1e293b; line-height: 1.3; }
+            .meal-simple strong { color: #004098; margin-right: 4px; width: 18px; flex-shrink: 0; }
+            .meal-menu { display: flex; flex-direction: column; font-weight: 500; }
+            .meal-sub { font-size: 8.5pt; margin-top: 1px; color: #475569; }
+
+            /* 꼬리말 영역 */
+            .remarks { font-size: 9pt; color: #475569; text-align: right; font-weight: 500; margin-bottom: 10px; }
+            .footer-box { margin-top: auto; border-top: 1px solid #e2e8f0; padding-top: 10px; display: flex; justify-content: space-between; align-items: flex-end; }
+            .brand-link { font-size: 9.5pt; color: #6c757d; font-weight: bold; }
+            .manager-info { text-align: right; border-left: 3px solid #004098; padding-left: 12px; color: #0f172a; font-weight: 700; font-size: 10.5pt; line-height: 1.4; }
+
+            /* 페이지 넘김 방지 */
+            tr, td { page-break-inside: avoid; }
         }
     </style>
 </head>
 <body class="antialiased pb-20 md:pb-0 print:pb-0 print:bg-white">
 
-    <!-- Screen Content Wrapper -->
+    <!-- ========================================== -->
+    <!-- 📱 Screen Content Wrapper (스마트 가이드북)  -->
+    <!-- ========================================== -->
     <div class="print-hidden">
         
         <!-- Header (Sticky Navigation) -->
@@ -176,18 +218,17 @@
                     <h2 class="text-2xl md:text-3xl font-bold text-slate-800 mt-2">항공 스케줄 안내</h2>
                 </div>
 
-                <!-- Flight Information -->
                 <div class="max-w-4xl mx-auto mb-10">
                     <div class="bg-white rounded-2xl border border-blue-100 shadow-md p-6">
                         <div class="flex flex-col md:flex-row gap-6 justify-center items-center">
                             <div class="bg-blue-50 border border-blue-100 rounded-xl p-5 w-full md:w-1/2 text-center relative overflow-hidden">
-                                <div class="absolute top-0 right-0 bg-blue-600 text-white text-[10px] px-2 py-1 rounded-bl-lg font-bold">제2여객터미널(T2)</div>
+                                <div class="absolute top-0 right-0 bg-blue-600 text-white text-[10px] px-2 py-1 rounded-bl-lg font-bold">제1여객터미널(T1)</div>
                                 <span class="text-xs bg-blue-600 text-white px-3 py-1 rounded-full font-bold mb-3 inline-block">출국 5.12(화)</span>
                                 <p class="font-black text-xl text-slate-800 mb-1">에어부산 BX172</p>
                                 <p class="text-slate-600 font-medium text-lg">인천 09:40 <i class="fa-solid fa-plane text-blue-400 mx-2"></i> 간사이 11:50</p>
                             </div>
                             <div class="bg-red-50 border border-red-100 rounded-xl p-5 w-full md:w-1/2 text-center relative overflow-hidden">
-                                <div class="absolute top-0 right-0 bg-red-600 text-white text-[10px] px-2 py-1 rounded-bl-lg font-bold">제2여객터미널(T2)</div>
+                                <div class="absolute top-0 right-0 bg-red-600 text-white text-[10px] px-2 py-1 rounded-bl-lg font-bold">제1여객터미널(T1)</div>
                                 <span class="text-xs bg-red-600 text-white px-3 py-1 rounded-full font-bold mb-3 inline-block">귀국 5.15(금)</span>
                                 <p class="font-black text-xl text-slate-800 mb-1">에어부산 BX171</p>
                                 <p class="text-slate-600 font-medium text-lg">간사이 12:50 <i class="fa-solid fa-plane text-red-400 mx-2"></i> 인천 15:00</p>
@@ -864,37 +905,34 @@
                 <p class="text-[12px] text-[#6c757d] font-normal mb-6 max-w-xl mx-auto leading-relaxed">
                     [System Powered by TOURMAKER]<br>본 스마트 가이드북은 <strong>문곡중학교</strong>의 기획과 투어메이커의 트래블 테크 기술 제휴로 제작되었습니다.
                 </p>
-                <div class="flex justify-center opacity-50"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgHfgIX70O5k6Anuo0UgALIdaG9jSga9auHu3uyz0uEirylGPAJnjN_qQbvEGMUvPqUQf_g9FMNUHRxlDcUBf4vZ3Mpy4TnA9WxbmzWYK11gt2zuy_Irl4wctNFjcjLyPo0GPXV792o_J7L9guRMuDfeC1gy7USwywjYbECZgzcsHybuGRRAXAnO1eNmP8/s320/logo.png" alt="Tourmaker" class="h-6"></div>
             </div>
         </footer>
     </div>
 
     <!-- ========================================== -->
-    <!-- Print-Only Area (A4 Optimized) -->
+    <!-- 🖨️ Print-Only Area (표준 A4 결재 서류 양식) -->
     <!-- ========================================== -->
-    <div id="print-area" class="hidden w-full text-black">
-        <!-- 헤더 영역 -->
-        <div class="flex justify-between items-center border-b-2 border-[#004098] pb-4 mb-6">
+    <div id="print-area" class="hidden">
+        
+        <div class="print-header">
             <div>
-                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgHfgIX70O5k6Anuo0UgALIdaG9jSga9auHu3uyz0uEirylGPAJnjN_qQbvEGMUvPqUQf_g9FMNUHRxlDcUBf4vZ3Mpy4TnA9WxbmzWYK11gt2zuy_Irl4wctNFjcjLyPo0GPXV792o_J7L9guRMuDfeC1gy7USwywjYbECZgzcsHybuGRRAXAnO1eNmP8/s320/logo.png" alt="Tourmaker" class="h-8">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgHfgIX70O5k6Anuo0UgALIdaG9jSga9auHu3uyz0uEirylGPAJnjN_qQbvEGMUvPqUQf_g9FMNUHRxlDcUBf4vZ3Mpy4TnA9WxbmzWYK11gt2zuy_Irl4wctNFjcjLyPo0GPXV792o_J7L9guRMuDfeC1gy7USwywjYbECZgzcsHybuGRRAXAnO1eNmP8/s320/logo.png" alt="Tourmaker">
             </div>
-            <h1 class="text-2xl font-black text-center flex-1" style="font-family: 'Nanum Myeongjo', serif;">
-                문곡중학교 오사카/고베/교토/나라 3박 4일 확정서
-            </h1>
+            <div style="font-size: 10.5pt; color: #475569; font-weight: 500;">
+                문서번호: TM-260512-MG
+            </div>
         </div>
 
-        <div class="flex justify-between items-end mb-4 font-bold text-sm">
-            <div class="text-slate-800">
-                <p>일 정 : 2026.05.12(화) ~ 05.15(금)</p>
-                <p class="mt-1">항공편 : 에어부산(BX) / 호 텔 : 사라사 호텔 도톤보리</p>
-            </div>
-            <div class="text-right text-slate-800">
-                <p>총 괄 : 이재명 대표 (010-9443-7881)</p>
-                <p class="mt-1">현 지 : 나상수 가이드 (080-5002-2305)</p>
-            </div>
+        <div class="print-title">
+            문곡중학교 오사카/고베/교토/나라 3박 4일 확정서
         </div>
-        
-        <!-- 테이블 비율 11%, 75%, 14% 적용 -->
+
+        <div class="overview-slim">
+            <div><span class="label">행사기간</span> 2026. 05. 12 (화) ~ 05. 15 (금)</div>
+            <div><span class="label">이용항공</span> 에어부산 (BX)</div>
+            <div><span class="label">이용숙소</span> 사라사 호텔 도톤보리</div>
+        </div>
+
         <table>
             <thead>
                 <tr>
@@ -904,59 +942,111 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td class="col-day">1일차<br><span class="text-xs font-normal">(5.12/화)</span></td>
+                <!-- Day 1 -->
+                <tr class="day-divider">
+                    <td class="col-day"><strong>1일차</strong><br><span style="font-size: 9.5pt; font-weight: normal; color: #475569;">5.12 (화)</span></td>
                     <td class="col-schedule">
-                        <span class="highlight-text">에어부산 BX172 인천 09:40 출발 ✈️ 간사이 11:50 도착</span><br>
-                        ■ 입국 수속 후 전용 버스로 고베로 이동<br>
-                        ■ <b>롯코산 케이블카 & 가든테라스</b> : 산정상에서 고베항 조망<br>
-                        ■ <b>메모리얼 파크 (메리켄 파크)</b> : 고베 대지진 추모 공원<br>
-                        ■ <b>고베 하버랜드</b> : 탁 트인 고베항 야경 감상<br>
-                        ■ 석식 후 호텔 숙박 및 휴식
+                        <div class="time-flow"><span class="time-tag">09:40</span> 인천 국제공항 출발 (에어부산 BX172)</div>
+                        <div class="time-flow"><span class="time-tag">11:50</span> 간사이 국제공항 도착 및 가이드 미팅</div>
+                        <ul class="desc-list">
+                            <li>[전용차량] 탑승 후 고베로 이동</li>
+                            <li>산정상에서 고베항을 조망하는 <span class="highlight">롯코산 케이블카 & 가든테라스</span></li>
+                            <li>고베 대지진의 아픔을 추모하는 <span class="highlight">메모리얼 파크 (메리켄 파크)</span></li>
+                            <li>탁 트인 고베항 야경을 감상할 수 있는 <span class="highlight">고베 하버랜드</span></li>
+                            <li>석식 후 호텔 숙박 및 휴식</li>
+                        </ul>
                     </td>
-                    <td class="col-meal">[조] 불포함<br>[중] 돈까스 세트<br>[석] 뷔페식</td>
+                    <td class="col-meal">
+                        <div class="meal-wrapper">
+                            <div class="meal-simple"><strong>조:</strong><div class="meal-menu">불포함</div></div>
+                            <div class="meal-simple"><strong>중:</strong><div class="meal-menu">돈까스 세트</div></div>
+                            <div class="meal-simple"><strong>석:</strong><div class="meal-menu">뷔페식</div></div>
+                        </div>
+                    </td>
                 </tr>
-                <tr>
-                    <td class="col-day">2일차<br><span class="text-xs font-normal">(5.13/수)</span></td>
+
+                <!-- Day 2 -->
+                <tr class="day-divider">
+                    <td class="col-day"><strong>2일차</strong><br><span style="font-size: 9.5pt; font-weight: normal; color: #475569;">5.13 (수)</span></td>
                     <td class="col-schedule">
-                        ■ 호텔 조식 후 교토로 이동 (약 1시간 20분 소요)<br>
-                        ■ <b>도시샤 대학</b> : 교정 탐방 및 윤동주/정지용 시비 참배<br>
-                        ■ <b>이총 (귀무덤)</b> : 임진왜란 희생자 위령비 방문<br>
-                        ■ <b>기요미즈데라(청수사)</b> 및 참배길(산넨/니넨자카) 체험<br>
-                        ■ <b>아라시야마</b> : 노노미야신사, 도게츠교, 치쿠린(대나무숲) 산책<br>
-                        ■ 오사카로 귀환 및 석식 후 휴식
+                        <div class="time-flow"><span class="time-tag">전일</span> 호텔 조식 후 교토로 이동 (약 1시간 20분 소요)</div>
+                        <ul class="desc-list">
+                            <li>윤동주/정지용 시비 참배 및 교정 탐방 <span class="highlight">도시샤 대학</span></li>
+                            <li>임진왜란 희생자 위령비 방문 <span class="highlight">이총 (귀무덤)</span></li>
+                            <li><span class="highlight">기요미즈데라(청수사)</span> 및 참배길(산넨/니넨자카) 체험</li>
+                            <li>노노미야신사, 도게츠교, 치쿠린(대나무숲) 산책 <span class="highlight">아라시야마</span></li>
+                            <li>오사카로 귀환 및 석식 후 휴식</li>
+                        </ul>
                     </td>
-                    <td class="col-meal">[조] 호텔식<br>[중] 텐푸라 정식<br>[석] 샤브샤브(무한)</td>
+                    <td class="col-meal">
+                        <div class="meal-wrapper">
+                            <div class="meal-simple"><strong>조:</strong><div class="meal-menu">호텔식</div></div>
+                            <div class="meal-simple"><strong>중:</strong><div class="meal-menu">텐푸라 정식</div></div>
+                            <div class="meal-simple"><strong>석:</strong><div class="meal-menu">샤브샤브<span class="meal-sub">(무한제공)</span></div></div>
+                        </div>
+                    </td>
                 </tr>
-                <tr>
-                    <td class="col-day">3일차<br><span class="text-xs font-normal">(5.14/목)</span></td>
+
+                <!-- Day 3 -->
+                <tr class="day-divider">
+                    <td class="col-day"><strong>3일차</strong><br><span style="font-size: 9.5pt; font-weight: normal; color: #475569;">5.14 (목)</span></td>
                     <td class="col-schedule">
-                        ■ 호텔 조식 후 나라로 이동 (약 1시간 소요)<br>
-                        ■ <b>도다이지(동대사) & 사슴공원</b> : 대불 관람 및 사슴과 교감<br>
-                        ■ 오사카 귀환 후 <b>오사카성 (천수각 외부)</b> 관람<br>
-                        ■ <b>하루카스 300 전망대</b> : 지상 300m 파노라마 조망<br>
-                        ■ <b>신사이바시 & 도톤보리</b> 조별 자유시간<br>
-                        ■ 석식 후 호텔 숙박 및 휴식
+                        <div class="time-flow"><span class="time-tag">전일</span> 호텔 조식 후 나라로 이동 (약 1시간 소요)</div>
+                        <ul class="desc-list">
+                            <li>대불 관람 및 사슴과 교감 <span class="highlight">도다이지(동대사) & 사슴공원</span></li>
+                            <li>오사카 귀환 후 <span class="highlight">오사카성 (천수각 외부)</span> 관람</li>
+                            <li>지상 300m 파노라마 조망 <span class="highlight">하루카스 300 전망대</span></li>
+                            <li><span class="highlight">신사이바시 & 도톤보리</span> 조별 자유시간</li>
+                            <li>석식 후 호텔 숙박 및 휴식</li>
+                        </ul>
                     </td>
-                    <td class="col-meal">[조] 호텔식<br>[중] 가마메시(솥밥)<br>[석] 야키니쿠(무한)</td>
+                    <td class="col-meal">
+                        <div class="meal-wrapper">
+                            <div class="meal-simple"><strong>조:</strong><div class="meal-menu">호텔식</div></div>
+                            <div class="meal-simple"><strong>중:</strong><div class="meal-menu">가마메시<span class="meal-sub">(솥밥)</span></div></div>
+                            <div class="meal-simple"><strong>석:</strong><div class="meal-menu">야키니쿠<span class="meal-sub">(무한제공)</span></div></div>
+                        </div>
+                    </td>
                 </tr>
-                <tr>
-                    <td class="col-day">4일차<br><span class="text-xs font-normal">(5.15/금)</span></td>
+
+                <!-- Day 4 -->
+                <tr class="day-divider">
+                    <td class="col-day"><strong>4일차</strong><br><span style="font-size: 9.5pt; font-weight: normal; color: #475569;">5.15 (금)</span></td>
                     <td class="col-schedule">
-                        ■ 호텔 조식 후 체크아웃 및 공항 방면 이동<br>
-                        ■ <b>수퍼센터 트라이얼 린쿠타운점</b> : 생활용품 마트 견학 및 쇼핑<br>
-                        <span class="highlight-text">에어부산 BX171 간사이 12:50 출발 ✈️ 인천 15:00 도착</span><br>
-                        ■ 인천공항 도착 후 단체 수속 및 귀가
+                        <div class="time-flow"><span class="time-tag">오전</span> 호텔 조식 후 체크아웃 및 공항 방면 이동</div>
+                        <ul class="desc-list">
+                            <li>생활용품 마트 견학 및 마지막 쇼핑 <span class="highlight">수퍼센터 트라이얼 린쿠타운점</span></li>
+                            <li>간사이 국제공항으로 이동 및 출국 수속</li>
+                        </ul>
+                        <div class="time-flow" style="margin-top: 10px;"><span class="time-tag">12:50</span> 간사이 국제공항 출발 (에어부산 BX171)</div>
+                        <div class="time-flow"><span class="time-tag">15:00</span> 인천 국제공항 도착 후 단체 수속 및 귀가</div>
                     </td>
-                    <td class="col-meal">[조] 호텔식<br>[중] 불포함<br>[석] 불포함</td>
+                    <td class="col-meal">
+                        <div class="meal-wrapper">
+                            <div class="meal-simple"><strong>조:</strong><div class="meal-menu">호텔식</div></div>
+                            <div class="meal-simple"><strong>중:</strong><div class="meal-menu">불포함</div></div>
+                            <div class="meal-simple"><strong>석:</strong><div class="meal-menu">불포함</div></div>
+                        </div>
+                    </td>
                 </tr>
             </tbody>
         </table>
-        
-        <div class="text-right mt-8 text-xs font-bold text-slate-500">
-            [System Powered by TOURMAKER]
+
+        <div class="remarks">
+            ※ 상기 일정은 항공기 연발착 및 현지 사정에 따라 다소 변경될 수 있습니다.
+        </div>
+
+        <div class="footer-box">
+            <div class="brand-link">
+                [System Powered by TOURMAKER]
+            </div>
+            <div class="manager-info">
+                총 괄 : 이재명 대표 010-9443-7881<br>
+                현 지 : 나상수 가이드 080-5002-2305
+            </div>
         </div>
     </div>
+
 
     <!-- QR Code Modal -->
     <div id="qr-modal" class="fixed inset-0 bg-black/80 z-[100] hidden flex items-center justify-center backdrop-blur-sm opacity-0 transition-opacity duration-300">
